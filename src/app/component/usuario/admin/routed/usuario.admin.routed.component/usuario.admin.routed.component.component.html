@@ -45,15 +45,79 @@
         </ul>
       </nav>
 
+      <nav>
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a
+              class="page-link"
+              [class.disabled]="itemsPerPage === 10"
+              (click)="changeItemsPerPage(10)"
+              >10</a
+            >
+          </li>
+
+          <li class="page-item">
+            <a
+              class="page-link"
+              [class.disabled]="itemsPerPage === 50"
+              (click)="changeItemsPerPage(50)"
+              >50</a
+            >
+          </li>
+
+          <li class="page-item">
+            <a
+              class="page-link"
+              [class.disabled]="itemsPerPage === 100"
+              (click)="changeItemsPerPage(100)"
+              >100</a
+            >
+          </li>
+        </ul>
+      </nav>
+
       <div class="d-flex flex-column">
-        <table class="table table-striped table-bordered my-5">
+        <table class="table table-striped table-bordered my-3 w-100">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Primer Apellido</th>
-              <th>Segundo Apellido</th>
-              <th>Correo</th>
+              <th (click)="order('id')">
+                ID @if (sortField === 'id' && sortOrder === 'asc'){
+                <i class="bi bi-sort-alpha-down"></i>
+                } @else if (sortField === 'id' && sortOrder === 'desc') {<i
+                  class="bi bi-sort-alpha-up"
+                ></i
+                >}
+              </th>
+              <th (click)="order('nombre')">
+                Nombre @if (sortField === 'nombre' && sortOrder === 'asc'){
+                <i class="bi bi-sort-alpha-down"></i>
+                } @else if (sortField === 'nombre' && sortOrder === 'desc') {<i
+                  class="bi bi-sort-alpha-up"
+                ></i
+                >}
+              </th>
+              <th (click)="order('apellido1')">
+                Primer Apellido @if (sortField === 'apellido1' && sortOrder ===
+                'asc'){
+                <i class="bi bi-sort-alpha-down"></i>
+                } @else if (sortField === 'apellido1' && sortOrder === 'desc')
+                {<i class="bi bi-sort-alpha-up"></i>}
+              </th>
+              <th (click)="order('apellido2')">
+                Segundo Apellido @if (sortField === 'apellido2' && sortOrder ===
+                'asc'){
+                <i class="bi bi-sort-alpha-down"></i>
+                } @else if (sortField === 'apellido2' && sortOrder === 'desc')
+                {<i class="bi bi-sort-alpha-up"></i>}
+              </th>
+              <th (click)="order('email')">
+                Correo @if (sortField === 'email' && sortOrder === 'asc'){
+                <i class="bi bi-sort-alpha-down"></i>
+                } @else if (sortField === 'email' && sortOrder === 'desc') {<i
+                  class="bi bi-sort-alpha-up"
+                ></i
+                >}
+              </th>
               <th>Acciones</th>
             </tr>
           </thead>
