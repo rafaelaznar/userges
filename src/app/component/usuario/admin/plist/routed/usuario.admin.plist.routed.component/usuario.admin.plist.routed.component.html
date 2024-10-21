@@ -90,12 +90,12 @@
               <td>{{ usuario.apellido2 }}</td>
               <td>{{ usuario.email }}</td>
               <td>
-                <button class="btn btn-primary mx-2" (click)="editar(usuario)">
+                <a class="btn btn-primary mx-2" href="admin/usuario/edit/{{ usuario.id }}" (click)="editar(usuario)">
                   Editar
-                </button>
-                <button class="btn btn-danger" (click)="eliminar(usuario)">
+                </a>
+                <a class="btn btn-danger" href="admin/usuario/delete/{{ usuario.id }}" (click)="eliminar(usuario) ">
                   Eliminar
-                </button>
+                </a>
               </td>
             </tr>
             } @empty {

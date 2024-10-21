@@ -1,0 +1,24 @@
+
+ <mat-form-field>
+  <mat-label>Nombre</mat-label>
+  <input matInput formControlName="oUsuario.nombre" name="nombre" />
+ </mat-form-field>
+
+ <mat-form-field>
+  <mat-label>Primer Apellido</mat-label>
+  <input matInput formControlName="oUsuario.apellido1" name="apellido1" />
+ </mat-form-field>
+
+ <mat-form-field>
+  <mat-label>Segundo Apellido</mat-label>
+  <input matInput formControlName="oUsuario.apellido2" name="apellido2" />
+ </mat-form-field>
+
+ <mat-form-field>
+  <mat-label>Correo</mat-label>
+  <input matInput formControlName="oUsuario.email" name="email" />
+ </mat-form-field>
+
+ <button mat-raised-button color="primary" (click)="updateOne()">
+  Actualizar
+ </button>

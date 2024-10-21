@@ -94,6 +94,7 @@ export class UsuarioAdminRoutedComponent implements OnInit {
 
   goToRpp(nrpp: number) {
     this.rpp = nrpp;
+    this.page=0;
     this.getPage();
     return false;
   }

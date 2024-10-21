@@ -27,6 +27,7 @@ export class UsuarioService {
     if (!size) {
       size = 10;
     }
+    
     URL += '&size=' + size;
     if (field) {
       URL += '&sort=' + field;
@@ -35,10 +36,36 @@ export class UsuarioService {
       } else {
         URL += ',desc';
       }
+      
     }
     if (filtro) {
       URL += '&filter=' + filtro;
     }
     return this.oHttp.get<IPage<IUsuario>>(URL);
   }
+
+  getOne(id: number): Observable<IUsuario> {
+    let URL: string = '';
+    URL += 'http://localhost:8085';
+    URL += '/usuario';
+    URL += '/' + id;
+    return this.oHttp.get<IUsuario>(URL);
+  }
+
+  deleteOne(id: number): Observable<any> {
+    let URL: string = '';
+    URL += 'http://localhost:8085';
+    URL += '/usuario';
+    URL += '/' + id;
+    return this.oHttp.delete(URL);
+  }
+
+  updateOne(oUsuario: IUsuario): Observable<IUsuario> {
+    let URL: string = '';
+    URL += 'http://localhost:8085';
+    URL += '/usuario';
+    URL += '/' + oUsuario.id;
+    return this.oHttp.put<IUsuario>(URL, oUsuario);
+  }
 }
+
